@@ -34,8 +34,8 @@ MAX_NEW_TOKENS = CONTEXT_WINDOW_SIZE  # int(CONTEXT_WINDOW_SIZE/4)
 
 #### If you get a "not enough space in the buffer" error, you should reduce the values below, start with half of the original values and keep halving the value until the error stops appearing
 
-N_GPU_LAYERS = 100  # Llama-2-70B has 83 layers
-N_BATCH = 512
+N_GPU_LAYERS = 10  # Llama-2-70B has 83 layers
+N_BATCH = 1
 
 ### From experimenting with the Llama-2-7B-Chat-GGML model on 8GB VRAM, these values work:
 # N_GPU_LAYERS = 20
@@ -58,7 +58,8 @@ DOCUMENT_MAP = {
 }
 
 # Default Instructor Model
-EMBEDDING_MODEL_NAME = "hkunlp/instructor-large"  # Uses 1.5 GB of VRAM (High Accuracy with lower VRAM usage)
+#EMBEDDING_MODEL_NAME = "hkunlp/instructor-large"  # Uses 1.5 GB of VRAM (High Accuracy with lower VRAM usage)
+EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
 ####
 #### OTHER EMBEDDING MODEL OPTIONS
@@ -97,14 +98,17 @@ EMBEDDING_MODEL_NAME = "hkunlp/instructor-large"  # Uses 1.5 GB of VRAM (High Ac
 #### (FOR GGUF MODELS)
 ####
 
-# MODEL_ID = "TheBloke/Llama-2-13b-Chat-GGUF"
-# MODEL_BASENAME = "llama-2-13b-chat.Q4_K_M.gguf"
+#MODEL_ID = "TheBloke/Llama-2-13b-Chat-GGUF"
+#MODEL_BASENAME = "llama-2-13b-chat.Q4_K_M.gguf"
 
 MODEL_ID = "TheBloke/Llama-2-7b-Chat-GGUF"
 MODEL_BASENAME = "llama-2-7b-chat.Q4_K_M.gguf"
 
-# MODEL_ID = "TheBloke/Mistral-7B-Instruct-v0.1-GGUF"
-# MODEL_BASENAME = "mistral-7b-instruct-v0.1.Q8_0.gguf"
+#MODEL_ID = "TheBloke/Llama-2-70B-Chat-GGUF"
+#MODEL_BASENAME = "llama-2-70b-chat.Q5_K_M.gguf"
+
+#MODEL_ID = "TheBloke/Mistral-7B-Instruct-v0.1-GGUF"
+#MODEL_BASENAME = "mistral-7b-instruct-v0.1.Q8_0.gguf"
 
 # MODEL_ID = "TheBloke/Llama-2-70b-Chat-GGUF"
 # MODEL_BASENAME = "llama-2-70b-chat.Q4_K_M.gguf"

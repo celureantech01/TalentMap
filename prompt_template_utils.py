@@ -5,6 +5,7 @@ This seems to have significant impact on the output of the LLM.
 """
 
 from langchain.memory import ConversationBufferMemory
+from langchain.memory import ConversationBufferWindowMemory
 from langchain.prompts import PromptTemplate
 
 # this is specific to Llama-2.
@@ -80,7 +81,8 @@ def get_prompt_template(system_prompt=system_prompt, promptTemplate_type=None, h
             )
             prompt = PromptTemplate(input_variables=["context", "question"], template=prompt_template)
 
-    memory = ConversationBufferMemory(input_key="question", memory_key="history")
+#    memory = ConversationBufferMemory(input_key="question", memory_key="history")
+    memory = ConversationBufferWindowMemory(input_key="question", memory_key="history", k=3)
 
     return (
         prompt,
